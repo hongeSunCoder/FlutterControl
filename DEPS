@@ -122,5 +122,8 @@ deps = {
   'third_party/skia':
    Var('skia_git') + '/skia.git' + '@' +  Var('skia_revision'),
 
+  'src/third_party/dart':
+   Var('dart_git') + '/sdk.git' + '@' + Var('dart_revision'),
+
 }
 

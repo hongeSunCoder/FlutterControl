@@ -1,8 +1,8 @@
 solutions = [
   {
     "managed": False,
-    "name": "src/flutter",
-    "url": "git@github.com:hongeSunCoder/my_app.git",
+    "name": ".",
+    "url": "git@github.com:hongeSunCoder/FlutterControl.git",
     "custom_deps": {},
     "deps_file": "DEPS",
     "safesync_url": "",

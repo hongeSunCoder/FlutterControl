@@ -6,41 +6,48 @@
 
 #include <atomic>
 
-#include "../../fml/logging.h"
+#include "../../fml/logging.hpp"
 
-namespace impeller {
+namespace impeller
+{
 
-static std::atomic_int32_t sValidationLogsDisabledCount = 0;
+  static std::atomic_int32_t sValidationLogsDisabledCount = 0;
 
-ScopedValidationDisable::ScopedValidationDisable() {
-  sValidationLogsDisabledCount++;
-}
-
-ScopedValidationDisable::~ScopedValidationDisable() {
-  sValidationLogsDisabledCount--;
-}
-
-ValidationLog::ValidationLog() = default;
-
-ValidationLog::~ValidationLog() {
-  if (sValidationLogsDisabledCount <= 0) {
-#if (FLUTTER_RUNTIME_MODE == FLUTTER_RUNTIME_MODE_RELEASE)
-    FML_LOG(ERROR) << stream_.str();
-    ImpellerValidationBreak();
-#else
-    FML_LOG(FATAL) << stream_.str();
-#endif
+  ScopedValidationDisable::ScopedValidationDisable()
+  {
+    sValidationLogsDisabledCount++;
   }
-}
 
-std::ostream& ValidationLog::GetStream() {
-  return stream_;
-}
+  ScopedValidationDisable::~ScopedValidationDisable()
+  {
+    sValidationLogsDisabledCount--;
+  }
 
-void ImpellerValidationBreak() {
-  // Nothing to do. Exists for the debugger.
-  FML_LOG(ERROR) << "Break on " << __FUNCTION__
-                 << " to inspect point of failure.";
-}
+  ValidationLog::ValidationLog() = default;
 
-}  // namespace impeller
+  ValidationLog::~ValidationLog()
+  {
+    if (sValidationLogsDisabledCount <= 0)
+    {
+#if (FLUTTER_RUNTIME_MODE == FLUTTER_RUNTIME_MODE_RELEASE)
+      FML_LOG(ERROR) << stream_.str();
+      ImpellerValidationBreak();
+#else
+      FML_LOG(FATAL) << stream_.str();
+#endif
+    }
+  }
+
+  std::ostream &ValidationLog::GetStream()
+  {
+    return stream_;
+  }
+
+  void ImpellerValidationBreak()
+  {
+    // Nothing to do. Exists for the debugger.
+    FML_LOG(ERROR) << "Break on " << __FUNCTION__
+                   << " to inspect point of failure.";
+  }
+
+} // namespace impeller
