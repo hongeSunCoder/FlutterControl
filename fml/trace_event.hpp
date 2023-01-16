@@ -45,7 +45,7 @@
 
 #include "macros.h"
 #include "time/time_point.hpp"
-#include "third_party/dart/runtime/include/dart_tools_api.h"
+#include "../third_party/dart/runtime/include/dart_tools_api.h"
 
 #if (FLUTTER_RELEASE && !defined(OS_FUCHSIA) && !defined(FML_OS_ANDROID))
 #define FLUTTER_TIMELINE_ENABLED 0

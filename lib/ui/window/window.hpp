@@ -14,31 +14,33 @@
 #include "platform_message.hpp"
 #include "pointer_data_packet.hpp"
 #include "viewport_metrics.hpp"
-#include "third_party/skia/include/gpu/GrDirectContext.h"
-#include "third_party/tonic/dart_persistent_value.h"
+#include "../../../third_party/skia/include/gpu/GrDirectContext.h"
+#include "../../../third_party/tonic/dart_persistent_value.h"
 
-namespace flutter {
-class Window final {
- public:
-  Window(int64_t window_id, ViewportMetrics metrics);
+namespace flutter
+{
+  class Window final
+  {
+  public:
+    Window(int64_t window_id, ViewportMetrics metrics);
 
-  ~Window();
+    ~Window();
 
-  int window_id() const { return window_id_; }
+    int window_id() const { return window_id_; }
 
-  const ViewportMetrics& viewport_metrics() const { return viewport_metrics_; }
+    const ViewportMetrics &viewport_metrics() const { return viewport_metrics_; }
 
-  // Dispatch a packet to the framework that indicates one or a few pointer
-  // events.
-  void DispatchPointerDataPacket(const PointerDataPacket& packet);
-  void UpdateWindowMetrics(const ViewportMetrics& metrics);
+    // Dispatch a packet to the framework that indicates one or a few pointer
+    // events.
+    void DispatchPointerDataPacket(const PointerDataPacket &packet);
+    void UpdateWindowMetrics(const ViewportMetrics &metrics);
 
- private:
-  tonic::DartPersistentValue library_;
-  int64_t window_id_;
-  ViewportMetrics viewport_metrics_;
-};
+  private:
+    tonic::DartPersistentValue library_;
+    int64_t window_id_;
+    ViewportMetrics viewport_metrics_;
+  };
 
-}  // namespace flutter
+} // namespace flutter
 
-#endif  // FLUTTER_LIB_UI_WINDOW_WINDOW_H_
+#endif // FLUTTER_LIB_UI_WINDOW_WINDOW_H_

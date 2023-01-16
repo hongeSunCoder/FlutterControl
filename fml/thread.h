@@ -52,7 +52,7 @@ namespace fml
 
         void Join();
 
-        static void setCurrentThreadName(const ThreadConfig &config);
+        static void SetCurrentThreadName(const ThreadConfig &config);
 
     private:
         std::unique_ptr<std::thread> thread_;

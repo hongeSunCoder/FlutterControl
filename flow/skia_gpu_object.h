@@ -9,7 +9,7 @@
 #include <queue>
 
 #include "../fml/memory/ref_counted.h"
-#include "../fml/memory/weak_ptr.h"
+#include "../fml/memory/weak_ptr.hpp"
 #include "../fml/task_runner.h"
 #include "../fml/trace_event.h"
 #include "third_party/skia/include/core/SkRefCnt.h"
