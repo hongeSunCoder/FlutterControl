@@ -1,0 +1,11 @@
+executable("tutorial") {
+    sources = [
+        "tutorial.cc"
+    ]
+}
+
+group("tools") {
+    deps = [
+        "//tutorial"
+    ]
+}
