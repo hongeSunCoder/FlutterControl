@@ -3,8 +3,8 @@
 # found in the LICENSE file.
 
 import("//build/compiled_action.gni")
-import("//flutter/common/config.gni")
-import("//flutter/testing/testing.gni")
+import("//common/config.gni")
+# import("//flutter/testing/testing.gni")
 
 declare_args() {
   # Path to the Mali offline compiler tool 'malioc'.
