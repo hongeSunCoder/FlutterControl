@@ -103,8 +103,8 @@ template("embedder_source_set") {
     deps = [
       ":embedder_gpu_configuration",
       "//flutter/assets",
-      "//flutter/common",
-      "//flutter/common/graphics",
+      "//common",
+      "//common/graphics",
       "//flutter/flow",
       "//flutter/fml",
       "//flutter/lib/ui",

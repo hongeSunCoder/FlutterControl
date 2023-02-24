@@ -3,7 +3,7 @@
 # found in the LICENSE file.
 
 import("//build/compiled_action.gni")
-import("//flutter/common/config.gni")
+import("//common/config.gni")
 import("//flutter/impeller/tools/malioc.gni")
 import("//flutter/testing/testing.gni")
 
